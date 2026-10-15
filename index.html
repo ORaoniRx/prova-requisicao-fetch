@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal da Fábrica - Início</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Portal Interno da Fábrica</h1>
+    <p>Bem-vindo ao sistema de informação da linha de produção industrial.</p>
+    <p>Selecione uma das opções abaixo para navegar pelas seções:</p>
+
+    <hr>
+    <nav>
+        <a href="/">Início</a> |
+        <a href="/manuais">Manuais Operacionais</a> |
+        <a href="/seguranca">Normas de Segurança</a>
+    </nav>
+
+    <script>
+        async function carregar_index() {
+            const requisicao = await fetch('http://localhost:3000');
+            const dados = await requisicao.text()
+            console.log(dados);
+        };
+
+        async function carregar_manuais() {
+            const requisicao = await fetch('http://localhost:3000/manuais');
+            const dados = await requisicao.text()
+            console.log(dados);
+        };
+
+        async function carregar_seguranca() {
+            const requisicao = await fetch('http://localhost:3000/seguranca');
+            const dados = await requisicao.text()
+            console.log(dados);
+        };
+
+        carregar_index();
+        carregar_manuais();
+        carregar_seguranca();
+    </script>
+</body>
+
+</html>
